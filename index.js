@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 // const requestIp = require('request-ip');
-var request = require('request');
+// var request = require('request');
 const axios = require('axios');
 
 const app = express()
