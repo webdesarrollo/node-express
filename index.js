@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 // const requestIp = require('request-ip');
+var request = require('request');
+const axios = require('axios');
 
 const app = express()
 const port = 5000
@@ -30,6 +32,24 @@ app.get('/api/ip', (req, res) =>{
     res.status(201).json({
         ip: ip, 
     });
+})
+
+
+app.get('/api/ip2', (req, res) =>{
+    let ip = ''
+  axios.get('https://api.ipify.org?format=json')
+    .then(response => {
+      res.status(201).json({
+        ip: response.data.ip, 
+      });
+    })
+    .catch(error => {
+      res.status(500).json({
+        ip: '', 
+      });
+    });
+
+
 })
 
 const PORT = process.env.PORT || 5000
