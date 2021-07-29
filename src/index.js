@@ -22,6 +22,6 @@ app.get('/api/ip', (req, res) =>{
     res.status(201).json({ip:ip,requestIp:requestIp});
 })
 
-app.listen(port,()=>{
-    console.log("server puerto ",port)
-})
+http.listen((process.env.PORT || 5000), function(){
+  console.log('listening on *:5000');
+});
